@@ -1,1 +1,1 @@
-# My-AtCoder
+# MyAtCoder
