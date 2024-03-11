@@ -1,0 +1,74 @@
+【セグ木】from atcoder.segtree import SegTree
+st = SegTree(op, e, v) : n
+セグメントツリーを構築する。
+op：区間の演算につかう関数(maxとかminとか)
+e：単位元(-1とかの初期値的なもの) 
+v：list型かint型を入れる。list型の場合はそのリストをそのまま入り、
+int型の場合はすべての要素が単位元eで長さvのリストになる。
+
+st.set(p, x) : リストAについて、A_pにxを代入する。logn
+
+st.get(p) : リストAのp番目の要素A_pを返す。1
+
+st.prod(l, r) : 半開区間[l:r)における演算の結果を返す。logn
+
+st.all_prod() : リスト全体における演算の結果を返す。1
+
+st.max_right(p, func) : logn
+セグメントツリー上で二分探索をする。 p<=iを満たすiの中で、
+関数funcを満たす最小のiを返す。
+
+st.min_left(p, func) : logn
+セグメントツリー上で二分探索をする。 i<pを満たすiの中で、
+関数funcを満たす最大のiを返す。
+
+【遅延セグ】from atcoder.lazysegtree import LazySegTree
+lazy_segtree = LazySegTree(op, e, mapping, composition, id_, v):n
+遅延セグメントツリーを構築する。
+op：区間の演算に使う関数(maxとかminとか)
+e：単位元(-1とかの初期値的なもの) (op するときに入力が一つしかない時に代わりに入る値になる)
+mapping: 上のlazyを下のdataに作用させる関数　def mapping(lazy_upper, data_lower)
+composition: 上のlazyを下のlazyに作用させる関数　def composition(lazy_upper, lazy_lower):
+_id: mappingの恒等写像(つまり何もしない)
+(恒等写像 id とは、全ての a に対してmapping(id, a) = a となるものを指します。)
+v: 初期リスト
+
+set: 指定した位置の要素を更新します。logn
+p: 更新する位置。
+x: 新しい値。
+
+get: 指定した位置の要素を取得します。logn
+p: 取得する位置。
+
+prod: 指定した範囲の演算結果を取得します。logn
+left: 範囲の左端。
+right: 範囲の右端。
+
+all_prod: 全範囲の演算結果を取得します。1
+
+apply: 指定した範囲に関数を適用します（範囲更新）。logn
+left: 範囲の左端。
+right: 範囲の右端（オプション）。(rightを含まない)
+f: 値
+
+max_right: 指定した条件を満たす最大の右端を見つけます。logn
+left: 開始位置。
+g: 条件を満たすかを判断する関数。
+
+min_left: 指定した条件を満たす最小の左端を見つけます。logn
+right: 開始位置。
+g: 条件を満たすかを判断する関数。
+
+【Union-find】from atcoder.dsu import DSU
+======頂点は0スタートなことに注意======
+uf = DSU(N) : 初期化(Nは頂点数) n
+uf.merge(u, v) : 「頂点uの連結成分」と「頂点vの連結成分」を結合する。この連結成分の代表元を返す。はやい
+uf.same(u, v) : 2頂点u,vが同じ連結成分ならTrueを、そうでない場合はFalseを返す。はやい
+uf.leader(u) : 頂点uの連結成分の代表元を返す。はやい
+uf.size(u) : 頂点uの連結成分の頂点数を返す。はやい
+uf.groups() : 各連結成分のリストを返す (各連結成分がそれぞれリストになっていて、全体として2次元リスト)。n
+
+【優先度付きキュー】
+heapq.heapify(リスト)：リストを優先度付きキューに変換
+heapq.heappop(優先度付きキュー)：優先度付きキューから最小値を取り出す。
+heapq.heappush(優先度付きキュー , 挿入したい要素)：優先度付きキューに要素を挿入。
