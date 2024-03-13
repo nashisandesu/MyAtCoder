@@ -16,18 +16,11 @@ Ls = lambda: list(map(str, input().split()))
 
 ########################################################
 N = I()
-A = Li()
-right = A[0]
-right_idx = 0
-flag = 0
-# for i in range(1, N):
-#     if flag == 0:
-#         if right < A[i]:
-#             pass
-#         elif right == A[i]:
-#             middle = A[i]
-#             cnt = 1
-#     elif flag == 1:
+A = [0] + Li()
+l, r = [0] * (N + 2), [0] * (N + 2) #l[i]はi番目を頂上とした時の左側ピラミッドの最長
+for i in range(1, N + 1):
+    l[i] = min(A[i], l[i-1] + 1)
+for i in reversed(range(1, N + 1)):
+    r[i] = min(A[i], r[i+1] + 1)
 
-#     elif flag == 2:
-    
+print(max(min(l[i], r[i]) for i in range(1, N+1)))
