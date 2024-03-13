@@ -36,13 +36,13 @@ Ls = lambda: list(map(str, input().split()))
 ########################################################
 """
 
-folder_path =  f"/Users/yuri/research2023/Atcoder/ABC/abc{base_name}"
+folder_path =  f"/Users/yuri/Atcoder/ABC/abc{base_name}"
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
 
 # 各ファイルに対して、ファイルを作成し、指定した内容を書き込む
 for file_name in file_names[:num]:
-    file_path = f"/Users/yuri/research2023/Atcoder/ABC/abc{base_name}/{file_name}"
+    file_path = f"/Users/yuri/Atcoder/ABC/abc{base_name}/{file_name}"
     if not os.path.exists(file_path):
         with open(file_path, "w") as file:
             file.write(content)
