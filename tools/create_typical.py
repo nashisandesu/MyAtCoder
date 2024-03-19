@@ -7,7 +7,7 @@ for i in range(90):
     if first == 0:
         file_names.append(f"typical90_{chr(97+second)}.py")
     else:
-        file_names.append(f"typical90_{chr(97+first)}{chr(97+second)}.py")
+        file_names.append(f"typical90_{chr(96+first)}{chr(97+second)}.py")
 
 num = 90
 
