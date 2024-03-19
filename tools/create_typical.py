@@ -1,13 +1,14 @@
 import os
 
-# 基本となるファイル名（数字）を設定
-print('ABCのナンバーは？')
-base_name = input()
-
 # ファイル名のリストを作成
-file_names = [f"abc{base_name}_a.py", f"abc{base_name}_b.py", f"abc{base_name}_c.py", 
-              f"abc{base_name}_d.py", f"abc{base_name}_e.py", f"abc{base_name}_f.py",
-              f"abc{base_name}_g.py", f"abc{base_name}_h.py"]
+file_names = []
+for i in range(90):
+    first, second = divmod(i,26)
+    if first == 0:
+        file_names.append(f"typical90_{chr(97+second)}.py")
+    else:
+        file_names.append(f"typical90_{chr(97+first)}{chr(97+second)}.py")
+
 print('どこまで？')
 alphabet = input()
 num = ord(alphabet) - ord('a') + 1
@@ -36,13 +37,13 @@ Ls = lambda: list(map(str, input().split()))
 ########################################################
 """
 
-folder_path =  f"/Users/yuri/Atcoder/ABC/abc{base_name}"
+folder_path =  f"/Users/yuri/Atcoder/typical90"
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
 
 # 各ファイルに対して、ファイルを作成し、指定した内容を書き込む
 for file_name in file_names[:num]:
-    file_path = f"/Users/yuri/Atcoder/ABC/abc{base_name}/{file_name}"
+    file_path = f"{folder_path}/{file_name}"
     if not os.path.exists(file_path):
         with open(file_path, "w") as file:
             file.write(content)
