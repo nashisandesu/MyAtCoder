@@ -9,9 +9,7 @@ for i in range(90):
     else:
         file_names.append(f"typical90_{chr(97+first)}{chr(97+second)}.py")
 
-print('どこまで？')
-alphabet = input()
-num = ord(alphabet) - ord('a') + 1
+num = 90
 
 # 書き込む内容
 content = """import sys, bisect
