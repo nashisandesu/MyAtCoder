@@ -37,7 +37,7 @@ Ls = lambda: list(map(str, input().split()))
 ########################################################
 """
 
-folder_path =  f"/Users/yuri/Atcoder/typical90"
+folder_path =  f"/Users/yuri/Atcoder/typ/typical90"
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
 
@@ -50,4 +50,3 @@ for file_name in file_names[:num]:
         print(file_name + ' is created!')
     else:
         print(file_name + ' exists!')
-# 
