@@ -19,16 +19,29 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
-N, K = Mi()
-A = Li()
-B = Li()
-now = 0
-for i in range(N):
-    now += abs(A[i] - B[i])
+# 優先度付きキュー
+# N, K = Mi()
+# data = []
+# A = [0] * N
+# for i in range(N):
+#     a, b = Mi()
+#     heapq.heappush(data, (-b, i))
+#     A[i] = -(a - b)
 
-if now > K:
-    print('No')
-elif (K - now) % 2 == 0:
-    print('Yes')
-else:
-    print('No')
+# ans = 0
+# for i in range(K):
+#     point, num = heapq.heappop(data)
+#     ans += -point
+#     if num != float('Inf'):
+#         heapq.heappush(data, (A[num], float('Inf')))
+# print(ans)
+
+# 今回はb > a - b が保証されるので、部分点を取る前に満点(との差分)を取ることはない
+N, K = Mi()
+data = []
+for i in range(N):
+    a, b = Mi()
+    data.append(b)
+    data.append(a - b)
+data.sort(reverse=True)
+print(sum(data[:K]))

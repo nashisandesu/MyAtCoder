@@ -19,3 +19,15 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
+N, M = Mi()
+data = [0] * (N+1)
+for _ in range(M):
+    a, b = Mi()
+    small, big = min(a,b), max(a,b)
+    data[big] += 1
+
+cnt = 0
+for i in range(1, N+1):
+    if data[i] == 1:
+        cnt += 1
+print(cnt)

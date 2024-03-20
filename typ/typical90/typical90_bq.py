@@ -19,3 +19,12 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
+N, K = Mi()
+mod = 10 ** 9 + 7
+if N == 1:
+    print(K % mod)
+elif N == 2:
+    print(K * (K-1) % mod)
+else:
+    ans = K * (K-1) % mod
+    print((ans * pow(K-2, N-2, mod)) % mod)

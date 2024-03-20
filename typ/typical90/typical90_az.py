@@ -19,3 +19,13 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
+N = I()
+
+A = [ Li() for _ in range(N)]
+sum_i = [sum(A[i]) for i in range(N)]
+ans = 1
+mod = 10 ** 9 + 7
+for i in range(N):
+    ans *= sum_i[i]
+    ans %= mod
+print(ans)

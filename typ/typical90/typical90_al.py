@@ -19,3 +19,6 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
+A, B = Mi()
+ans = math.lcm(A,B)
+print(ans if ans <= 10**18 else 'Large')

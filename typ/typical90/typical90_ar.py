@@ -19,20 +19,36 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
-N = I()
+# dequeでゴリ押し
+# N, Q = Mi()
+# A = Li()
+# A = deque(A)
+# for _ in range(Q):
+#     t, x, y = Mi()
+#     if t == 1:
+#         temp = A[x-1]
+#         A[x-1] = A[y-1]
+#         A[y-1] = temp
+#     elif t == 2:
+#         temp = A.pop()
+#         A.appendleft(temp)
+#     else:
+#         print(A[x-1])
+
+#見かけ上の変化
+N, Q = Mi()
 A = Li()
-A.sort()
-Q = I()
-ans = []
+slide = 0
 for _ in range(Q):
-    b = I()
-    idx = bisect.bisect_left(A, b)
-    if idx == 0:
-        ans.append(A[idx] - b)
-    elif idx == N:
-        ans.append(b - A[N-1])
+    t, x, y = Mi()
+    if t == 1:
+        x = (x - 1 - slide) % N
+        y = (y - 1 - slide) % N
+        temp = A[x]
+        A[x] = A[y]
+        A[y] = temp
+    elif t == 2:
+        slide += 1
     else:
-        l, r = idx - 1, idx
-        ans.append(min(A[r]-b, b-A[l]))
-for i in range(Q):
-    print(ans[i])
+        x = (x - 1 - slide) % N
+        print(A[x])

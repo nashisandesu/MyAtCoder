@@ -19,3 +19,10 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
+a, b, c = Mi()
+l = a
+r = c ** b
+if l < r:
+    print('Yes')
+else:
+    print('No')

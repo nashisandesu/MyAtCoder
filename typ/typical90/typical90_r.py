@@ -19,3 +19,17 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
+T = I()
+l, X, Y = Mi()
+y = [0, -float(l)/2, 0, float(l)/2]
+z = [0, float(l)/2, l, float(l)/2]
+Q = I()
+for _ in range(Q):
+    e = I()
+    _, amari = divmod(e, T)
+    degree = math.radians(360 * float(amari) / T)
+
+    ekun = [0, -math.sin(degree) * float(l) / 2, (1-math.cos(degree)) * float(l) / 2]
+    height = ekun[2]
+    dist = ((X-ekun[0]) ** 2 + (Y-ekun[1]) ** 2) ** 0.5
+    print(math.degrees(math.atan(height/dist)))

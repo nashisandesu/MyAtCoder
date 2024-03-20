@@ -19,3 +19,29 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
+def operation(x):
+    num = 0
+    for i in range(20):
+        num += (8 ** i) * x[i]
+    for j in range(20):
+        sho, amari = divmod(num, 9)
+        if amari == 8:
+            amari = 5
+        data[j] = amari
+        num = sho
+
+N, K = Mi()
+data = [0] * 20
+for i in range(20):
+    data[i] = N % 10
+    N //= 10
+
+for _ in range(K):
+    operation(data)
+
+for i in reversed(range(20)):
+    if data[i]:
+        print(''.join(map(str, reversed(data[:i+1]))))
+        break
+else:
+    print(0)

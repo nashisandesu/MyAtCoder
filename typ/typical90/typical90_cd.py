@@ -19,3 +19,22 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
+def cnt(keta, small, big):
+    temp = (small + big) % mod
+    temp *= (big - small + 1) % mod
+    return (keta * temp * pow(2, mod - 2, mod)) % mod #繰り返し二乗法
+
+L, R = Mi()
+small_keta, big_keta = len(str(L)), len(str(R))
+mod = 10 ** 9 + 7
+ans = 0
+if small_keta == big_keta:
+    ans = cnt(small_keta, L, R)
+else:
+    ans += cnt(small_keta, L, 10 ** small_keta - 1)
+    for i in range(small_keta + 1, big_keta):
+        maxv, minv = 10 ** i - 1, 10 ** (i-1)
+        ans += cnt(i, minv, maxv)
+    ans += cnt(big_keta, 10 ** (big_keta - 1), R)
+    
+print(ans % mod)

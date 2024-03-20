@@ -19,3 +19,13 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
+Q = I()
+yamahuda = deque()
+for _ in range(Q):
+    t, x = Mi()
+    if t == 1:
+        yamahuda.appendleft(x)
+    elif t == 2:
+        yamahuda.append(x)
+    else:
+        print(yamahuda[x-1])

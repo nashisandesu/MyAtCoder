@@ -19,3 +19,39 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
+#愚直
+# N = I()
+# s = Sl()
+# data = {'o': [], 'x': []}
+# for i in range(N):
+#     data[s[i]].append(i)
+# data['o'].append(N)
+# data['x'].append(N)
+
+# ans = 0
+# for i in range(N):
+#     if s[i] == 'o':
+#         idx = bisect.bisect_left(data['x'], i)
+#         ans += N - data['x'][idx]
+#     elif s[i] == 'x':
+#         idx = bisect.bisect_left(data['o'], i)
+#         ans += N - data['o'][idx]
+# print(ans)
+
+
+#ランレングス圧縮
+N = I()
+s = Sl()
+pre = s[0]
+cnt = 1
+ans = 0
+for i in range(1, N):
+    if s[i] == pre:
+        cnt += 1
+    else:
+        pre = s[i]
+        ans += cnt * (cnt-1) // 2
+        cnt = 1
+else:
+    ans += cnt * (cnt-1) // 2
+print(N * (N-1) // 2 - ans)

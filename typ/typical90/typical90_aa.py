@@ -19,3 +19,10 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
+N = I()
+data = set()
+for i in range(N):
+    s = input()
+    if s not in data:
+        data.add(s)
+        print(i+1)

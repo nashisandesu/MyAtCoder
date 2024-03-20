@@ -19,3 +19,8 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
+A, B, C = Mi()
+temp = math.gcd(A, B)
+gcd = math.gcd(temp, C)
+ans = A // gcd - 1 + B // gcd - 1 + C // gcd - 1
+print(ans)

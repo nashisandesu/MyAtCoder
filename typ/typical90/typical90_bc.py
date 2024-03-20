@@ -19,3 +19,14 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
+N, P, Q = Mi()
+A = Li()
+cnt = 0
+for num in combinations(A, 5):
+    product = 1
+    for n in num:
+        product *= n
+        product %= P
+    if product % P == Q:
+        cnt += 1
+print(cnt)
