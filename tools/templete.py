@@ -64,3 +64,56 @@ from functools import cache
 def f(N):
     return 0 if N == 1 else f(N // 2) + f((N + 1) // 2) + N
 print(f(int(input())))
+
+#dfs
+H, W = Mi()
+used = [[False for _ in range(W)] for _ in range(H)]
+def dfs(cur) :
+    used[cur] = True
+    for e in node[cur]:
+        if used[e] == False :
+            dfs(e)
+
+#bfs
+inf = 10**9
+dist = [inf for _ in range(N)]
+node = [[] for _ in range(N)]
+
+dist[0] = 0
+q = deque([0])
+
+while len(q) != 0 :
+    cur = q[0]
+    q.popleft()
+    for e in node[cur]:
+        if dist[e] > dist[cur] + 1 :
+            dist[e] = dist[cur]+1
+            q.append(e)
+
+#素因数分解
+"""nを素因数分解"""
+"""2以上の整数n => [[素因数, 指数], ...]の2次元リスト"""
+
+def factorization(n):
+    arr = []
+    temp = n
+    for i in range(2, int(-(-n**0.5//1))+1):
+        if temp%i==0:
+            cnt=0
+            while temp%i==0:
+                cnt+=1
+                temp //= i
+            arr.append([i, cnt])
+
+    if temp!=1:
+        arr.append([temp, 1])
+
+    if arr==[]:
+        arr.append([n, 1])
+
+    return arr
+
+factorization(24) 
+
+## [[2, 3], [3, 1]] 
+##  24 = 2^3 * 3^1
