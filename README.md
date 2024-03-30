@@ -13,4 +13,4 @@ AtCoderでの自身の解答(Python)をまとめています。現時点(2024/3/
 
 本Githubは個人のプログラム記録を主な目的とし、AtCoder公式の解答を示すものではありません。また、AtCoderのシステム上ACと判断されるが嘘解法であるプログラムが存在する可能性もございます。あらかじめご了承ください。
 
-AtCoderの正誤判定を自動で行うツールの導入も行なっております。[こちら]( https://qiita.com/chokoryu/items/4b31ffb89dbc8cb86971)の記事を参考にcptest.shは改変しております。
+AtCoderの正誤判定を自動で行うツールの導入も行っております。[こちら]( https://qiita.com/chokoryu/items/4b31ffb89dbc8cb86971)の記事を参考にcptest.shは改変しております。
