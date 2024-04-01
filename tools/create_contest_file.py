@@ -25,6 +25,8 @@ sys.setrecursionlimit(10**8)
 from collections import deque
 from itertools import combinations
 from itertools import permutations
+from itertools import combinations_with_replacement
+from itertools import product
 import heapq
 
 I = lambda: int(input())
