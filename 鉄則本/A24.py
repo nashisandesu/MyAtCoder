@@ -15,11 +15,16 @@ Ls = lambda: list(map(str, input().split()))
 
 ########################################################
 N = I()
-A = Li()
-set_A = list(set(A))
-set_A.sort()
-ans = []
-for a in A:
-    idx = bisect.bisect_right(set_A, a)
-    ans.append(idx)
-print(*ans)
+A = [0] + Li()
+# dp = [0] * (N+1)
+LEN = 0
+L = []
+for i in range(1, N+1):
+    pos = bisect.bisect_left(L, A[i])
+    # dp[i] = pos
+    if pos >= LEN:
+        L.append(A[i])
+        LEN += 1
+    else:
+        L[pos] = A[i]
+print(LEN)

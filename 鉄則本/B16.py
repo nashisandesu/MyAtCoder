@@ -15,11 +15,9 @@ Ls = lambda: list(map(str, input().split()))
 
 ########################################################
 N = I()
-A = Li()
-set_A = list(set(A))
-set_A.sort()
-ans = []
-for a in A:
-    idx = bisect.bisect_right(set_A, a)
-    ans.append(idx)
-print(*ans)
+h = [0] + Li()
+dp = [0] * (N + 1)
+dp[2] = abs(h[1]-h[2])
+for i in range(3, N + 1):
+    dp[i] = min(dp[i-1] + abs(h[i-1] - h[i]), dp[i-2] + abs(h[i-2] - h[i]))
+print(dp[-1])

@@ -14,12 +14,13 @@ Li = lambda: list(map(int, input().split()))
 Ls = lambda: list(map(str, input().split()))
 
 ########################################################
-N = I()
-A = Li()
-set_A = list(set(A))
-set_A.sort()
-ans = []
-for a in A:
-    idx = bisect.bisect_right(set_A, a)
-    ans.append(idx)
-print(*ans)
+N, W = Mi()
+dp = [[0] * (W+1) for _ in range(N+1)]
+for i in range(N):
+    w, v = Mi()
+    for j in range(W+1):
+        if j < w:
+            dp[i+1][j] = dp[i][j]
+        else:
+            dp[i+1][j] = max(dp[i][j], dp[i][j-w] + v)
+print(max(dp[-1]))

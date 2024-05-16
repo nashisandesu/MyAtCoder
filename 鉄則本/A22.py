@@ -15,11 +15,11 @@ Ls = lambda: list(map(str, input().split()))
 
 ########################################################
 N = I()
-A = Li()
-set_A = list(set(A))
-set_A.sort()
-ans = []
-for a in A:
-    idx = bisect.bisect_right(set_A, a)
-    ans.append(idx)
-print(*ans)
+A = [0] + Li()
+B = [0] + Li()
+dp = [-float('Inf')] * (N+1)
+dp[1] = 0
+for i in range(1, N):
+    dp[A[i]] = max(dp[A[i]], dp[i] + 100)
+    dp[B[i]] = max(dp[B[i]], dp[i] + 150)
+print(dp[-1])
