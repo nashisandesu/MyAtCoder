@@ -54,10 +54,14 @@ f: 値
 max_right: 指定した条件を満たす最大の右端を見つけます。logn
 left: 開始位置。
 g: 条件を満たすかを判断する関数。
+r = l もしくは g(op(a[l], a[l + 1], ..., a[r - 1])) = true
+r = n もしくは g(op(a[l], a[l + 1], ..., a[r])) = false
 
 min_left: 指定した条件を満たす最小の左端を見つけます。logn
 right: 開始位置。
 g: 条件を満たすかを判断する関数。
+l = r もしくは g(op(a[l], a[l + 1], ..., a[r - 1])) = true
+l = 0 もしくは g(op(a[l - 1], a[l], ..., a[r - 1])) = false
 
 【Union-find】from atcoder.dsu import DSU
 ======頂点は0スタートなことに注意======
