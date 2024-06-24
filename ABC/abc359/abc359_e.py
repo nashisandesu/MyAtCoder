@@ -49,3 +49,42 @@ for i in range(1, N):
         water.append((H[i], sum_cnt + 1))
     ans[i] = time + 1
 print(*ans)
+
+# 区間chmax区間加算はそのままではセグ木に乗らない(未解決)
+# N = I()
+# H = Li()
+# #遅延セグ
+# def op(data1, data2):
+#     return data1 + data2
+
+# def mapping(lazy_upper, data_lower):
+#     if lazy_upper == ID:
+#         return data_lower
+#     else:
+#         return lazy_upper
+
+# def composition(lazy_upper, lazy_lower):
+#     if lazy_upper == ID:
+#         return lazy_lower
+#     else:
+#         return lazy_upper
+
+# A = [0] * (N+1)
+# ID = -1
+# l_st = LazySegTree(op= op, e=0, mapping=mapping, composition= composition, id_ = ID, v = A)
+
+# for i in range(N):
+#     left = 0
+#     right = i
+#     result = -1
+#     # 0-iの中でH[i]以上となる最大のiを見つけたい
+#     while left <= right:
+#         mid = (left + right) // 2
+#         if l_st.get(mid) >= H[i]:
+#             result = mid
+#             left = mid + 1
+#         else:
+#             right = mid - 1
+#     print(left, right, i, result)
+#     l_st.apply(result + 1, i + 1, H[i])
+#     data = [l_st.get(j) for j in range(N + 1)]
